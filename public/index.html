@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<title>WME Prüfungsvorbereitung</title>
+
+<!-- MARKDOWN ......................... -->
+<xmp theme="simplex" style="display:none;">
+# Fragenkatalog
+
+## Beschreiben sie den grundlegenden Aufbau eines HTML-Dokuments
+
+HTML-Dokument besteht aus:
+
+* Dokumententypdefinition
+* Wurzelelement &lt;html&gt;
+* head- und body-Teil
+
+Beispiel:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titel</title>
+    <meta attribut="wert" />
+  </head>
+  <body>
+    <h1>Überschrift</h1>
+    <p>Text</p>
+  </body>
+</html>
+```
+
+Innerhalb des &lt;html&gt;-Elements gibt es
+
+* das **head**-Element, in welchem für das Gesamtdokument wichtige Informationen angegeben sind (z.B. Titel, Metadaten, ...)
+* das **body**-Element, in dem die eigentlichen Inhalte enthalten / referenziert sind
+
+-----------------------------------------------
+## Was ist ein Doctype?
+
+Dokumententypdefinition gibt an, nach welcher Grammatik das HTML-Dokument strukturiert ist.
+
+
+-----------------------------------------------
+## Welche HTML-Elemente kennen Sie, um Einträge in einer Liste/Aufzählung darzustellen?
+
+Unsortierte Liste
+```html
+<ul><!-- Unordered List -->
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+Sortierte Liste
+```html
+<ol><!-- Ordered List -->
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ol>
+```
+
+Definitionslisten
+```html
+<dl><!-- Ordered List -->
+  <dt>Item 1</dt><dd>Definition</dd>
+  <dt>Item 2</dt>dd>Definition</dd>
+  <dt>Item 3</dt>dd>Definition</dd>
+</dl>
+```
+
+-----------------------------------------------
+## Wie kann CSS in eine Website eingebunden werden?
+
+Extern
+```html
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+```
+
+```css
+body {
+  background-color: #000000;
+}
+```
+
+Intern
+```html
+<head>
+<style>
+body {
+   background-color: linen;
+}
+
+h1 {
+   color: maroon;
+   margin-left: 40px;
+}
+</style>
+</head>
+```
+
+Inline
+```html
+ <h1 style="color:blue;margin-left:30px;">This is a heading.</h1>
+```
+
+-----------------------------------------------
+## Was ist ein Selektor?
+
+Der *Selektor* gibt an, für welche/e HTML-Element/e die Formatdefinition gilt und dient damit der Auswahl bestimmter HTML-Elemente
+
+
+-----------------------------------------------
+## Welche Arten von Selektoren kennen Sie?
+
+
+```css
+* { Gilt für alle }
+h1 { gilt für alle h1 }
+#nav { gilt für Element mit id="nav" }
+li, dd, dt { gilt für alle li, dd und dt}
+a h1 { gilt für alle h1 innerhalb eines a}
+h1 + i { gilt für alle i nach einem h1}
+div > a { gilt für alle a direkt unterhalb eines div}
+p[align=left] {gilt für alle p mit align=left}
+.hallo {gilt für alle Elemente mit class="hallo"}
+usw.
+```
+
+-----------------------------------------------
+## Was ist ein attributabhängiger Selektor?
+
+Selektiert nur Elemente die ein bestimmtes Attribut besitzen oder deren Attribut einen bestimmten Wert hat. z.B.:
+```css
+p[align=left] {gilt für alle p mit align=left}
+```
+
+-----------------------------------------------
+## Was sind Kaskaden?
+
+### Kaskadierung bei Cascading Stylesheets (CSS)
+
+* CSS erlaubt die Nutzung mehrerer Stylesheets
+* Alle Stilbeschreibungen werden dann zusammegefasst auf das Dokument angewandt
+
+
+-----------------------------------------------
+## Was bedeutet und wie funktioniert Priorisierung in CSS?
+
+* Bei Überdeckung werden Werte nach Vorrangregeln sortiert (höchste zu niedrigste Priorität: Autor > Benutzer > Browser)
+* Reihenfolge: später verarbeitete Regel überschreibt frühere Regel (die Regel, die weiter unten steht wird angewandt)
+* Kontextregeln haben höhere Priorität als allgemeine Regeln
+* Selektoren mit Attributangabe haben noch höhere Prioritätodo
+
+
+-----------------------------------------------
+## Wie können Stile für verschiedene Ausgabemedien (Bildschirm, Druck, ...) definiert werden?
+
+Das Attribut **media** bestimmt für welches Ausgabemedium eine Datei verwendet werden soll. Die Trennung der Stile ist auch mittels mehrerer Stylesheets möglich.
+
+```css
+@media print {
+  selektor { eigenschaft: wert; }
+}
+
+@media screen, handheld {
+  selektor { eigenschaft: wert; }
+}
+```
+
+-----------------------------------------------
+## Wie können Stilangaben vererbt werden?
+
+```css
+span {
+    color: blue;
+}
+
+.extra span {
+    color: inherit;
+}
+```
+Alle **span**-Elemente erhalten die Schriftfarbe blau. **span**-Elemente innerhalb von Elementen der Klasse **extra** hingegen erben die Farbe der Klasse.
+
+
+-----------------------------------------------
+## Was bedeutet und wie funktioniert der Wert "inherit"?
+
+Durch **inherit** erbt ein Element den Wert der angegebenen Eigenschaft von seinem Elternelement. Das Wurzelelement kann dementsprechend keine Werte erben. Falls keine Werte geerbt werden können, werden die Standardwerte verwendet.
+
+
+-----------------------------------------------
+## Beschreiben Sie die Ausgabe der folgenden HTML-Seite inkl. der zugehörigen Stilangaben
+
+HTML-Seite auf der eine Überschrift gefolgt von einem kurzen Text mit Hervorhebung zu sehen ist. Anschließend folgt eine sortierte Liste. Schriftgröße ist 11, mit Serifenschriften, Farbe ist schwarz. Listeneinträge haben die Größe 14 und sind rot. Die Hervorhebung ist fett gedruckt und Elemente der Klasse y sind schräg gedruckt.
+
+
+-----------------------------------------------
+## Was ist JavaScript?
+
+* *JavaScript* ist eine einfache, imperative Skript-Programmiersprache für meist Client-seitige Funktionalitäten, aber auch Server-seitige Funktionen (z.B. mittels node.js).
+* Einbettung in HTML entweder direkt (in &lt;script&gt;-Tag oder inline in Attributen) oder indirekt als externe Datei (mittels **src**-Attribut des **script**-Tag)
+* Typische Anwendungsgebiete:
+  - Überprüfung von Formularen
+  - Dynamische Interaktion (Buttons usw.)
+  - Öffnen von Fenstern in bestimmter Größe
+  - Verändern der Eigenschaften von Elementen
+* kann auf Elemente des HTML-Dokuments per DOM (Document Object Model) zugreifen
+* kann Dokument dynamisch ändern
+
+
+-----------------------------------------------
+## Was ist ein Java Applet?
+
+* wird durch Java-Klassen implementiert, die vom Server geladen werden müssen
+* sind externe, in HTML-Dokument eingebundene Komponenten
+* sind GUI-Elemente und interaktiv
+* Ausführung in sicherer Browser-Umgebung in Java Runtime
+* erlauben Kommunikation mit serverseitigen Anwendungen
+
+
+-----------------------------------------------
+## JavaScript-Beispiel erläutern
+
+Bei Klick auf den Knopf mit der Beschriftung "Try it" wird die Funktion **myFunction()** ausgeführt, welche welche die Browser-eigene Benachrichtigungsfunktion verwendet um den Text "Hello, how are you?" anzuzeigen.
+
+
+-----------------------------------------------
+## Was ist XML?
+
+XML ... eXtensible Markup Language
+
+Definierbare Auszeichnungssprache XML:
+
+* standardisierte Metagrammatik zur Definition der Syntax von Auszeichnungssprachen
+* ist eine Metamarkup-Sprache für kontextfreie Sprachen, ist Grammatik einer Sprache, mit der sich Regeln von Grammatiken definieren lassen
+
+
+-----------------------------------------------
+## Wozu wird XML verwendet?
+
+* zur Definition der Syntax von Auszeichnungssprachen
+
+
+-----------------------------------------------
+## Was sind besondere Eigenschaften einer XML-basierten Technologie?
+
+* maschinen- und menschenlesbar
+* traversierbar, da Baumstruktur / Verschachtelung
+* textbasiert
+* Trennung von Inhalt und Präsentation
+
+
+-----------------------------------------------
+## Welche XML-basierten Web-Technologien kennen Sie?
+
+* XHTML, HTML5
+* SVG, MathML, RDF, Atom, RSS
+* XSLT, XPath, XML Schema, XSL-FO, XLink, XPointer
+
+
+-----------------------------------------------
+## Ein XML-Dokument heißt wohlgeformt, wenn es ... ?
+
+alle XML-Regeln einhält. Also:
+
+* ein Wurzelelement
+* immer Start- und End-Tag enthalten
+* ebenentreu paarige Start- und End-Tags
+* keine Mehrfachverwendung desselben Attributs je Tag
+* Attributeigenschaften in Anführungszeichen
+* Groß-/Kleinschreibung beachtet
+
+
+-----------------------------------------------
+## Ein XML-Dokument ist valide, wenn es ... ?
+
+* wohlgeformt ist
+* einen Verweis auf eine Grammatik enthält
+* und das durch die Grammatik beschriebene Format einhält
+
+
+-----------------------------------------------
+## Untersuchen Sie ein Dokument auf Wohlgeformtheit und Validität.
+
+
+-----------------------------------------------
+## Was ist ein XML-Schema? Wofür verwendet man es?
+
+* Alternative zu DTD
+* Definierung von Strukturen für XML-Dokumente in Form eines XML-Dokuments
+* Beschreibung von Datentypen
+
+
+-----------------------------------------------
+## Welche grundlegenden Datentypen stehen in einem XML-Schema zur Verfügung? Beispiele.
+
+*Einfache Datentypen* ohne Unterelemente oder Attribute
+
+* byte, integer, short, float, date, time, duration, language
+
+Beispiel:
+```xml
+<xsd:simpleType name="TFahrzeuge">
+  <xsd:union memberTypes="TFahrrad TMotorrad TPkw TLkw ..." />
+</xsd:simpleType>
+```
+
+Bildung eigener Typen durch Einschränkung, Vereinigung, Listenbildung vordefinierter Typen.
+
+*Komplexe Datentypen*, mit optionalen Attributen und Unterelementen. Beispiel:
+
+```xml
+<xsd:complexType>
+  <xsd:element>Unterelement</xsd:element>
+  ...
+</xsd:complexType>
+
+
+<xsd:element name="Leistung" type="TLeistung" />
+<xsd:complexType name="TLeistung">
+  <xsd:choice minOccurs="0">
+    <xsd:element name="PS" type="xsd:integer" />
+    <xsd:element name="kW" type="xsd:integer" />
+  </xsd:choice>
+</xsd:complexType>
+```
+
+-----------------------------------------------
+## Was ist eine Dokumenttypdefinition (DTD) und wofür wird sie benutzt?
+
+* Satz an Regeln der benutzt wird um Dokumente eines bestimmten Typs zu deklarieren
+* erfüllt gleiche Funktion wie XML Schema, aber weniger flexibel
+
+
+-----------------------------------------------
+## Nachteile von DTDs?
+
+* Viele Dinge nicht berücksichtigt, die für den Einsatz von XML-Dokumenten zur Datenbeschreibung und Datenaustausch wichtig sind:
+* Definition von impliziten Gültigkeitsregeln / Nebenbedingungen für Elemente nicht möglich
+* Kardinalitäten lassen sich nur umstädlich über Aufzählungen definieren
+* einmal definierte Inhatsmodelle können nicht dynamisch angepasst und wiederverwendet werden
+
+
+-----------------------------------------------
+## XPath, XLink, XPointer?
+
+### XLink
+
+XLink definiert die Attribute, die Elementen hinzugefügt werden müssen um als Verweisquelle/-Ziel oder als Verweis zu dienen
+
+* generelles Konzept der Erstellung von Links
+* attributbasierte Syntax zur Definition von Links in XML-Dokumenten
+* definiert Syntax und Semantik der Verknüpfung über spezielle Attribute
+* Attribute können für jedes XML-Element definiert werden, Verwendung von Namespaces (xlink)
+
+Mehr Möglichkeiten als HTML-Links:
+
+* unabhängig von konkreter Grammatik
+* 1:1, bidirektionale und 1:n-Verknüpfungen
+* Trennung von Dokumenteninhalten und Verknüpfungen
+* Rollen für Verknüpfungen
+
+
+### XPath
+
+XML Path Language
+
+* dient Adressierung beliebiger Knoten innerhalb desselben oder eines anderen XML-Dokuments (Elemente, Attribute, Textknoten)
+* Grundlage für XPointer und XSLT
+* operiert auf Baumstruktur
+* Definitionen von Achsen und Fuktionen zur Navigation
+* adressiert einzelne Knoten (node) und Knotenmengen (node-set)
+
+#### Achsen
+Durch Achsen lassen sich knoten kategorisieren.
+
+* Anchestor: alle Vorgängerknoten
+* Parent: erster Vorgängerknoten (Anchestor[0])
+* Anchestor or self: alle Vorgänger inklusive aktueller Knoten
+* self: nur aktueller Knoten
+* child: alle direkten (ersten Grades) Nachfolgeknoten
+* descendant: alle Nachfolgeknoten bis zu den Blättern
+* following: alle Knoten rechts von der Anchestor-or-self-Achse
+* preceding: alle Knoten links von der Anchestor-or-self-Achse
+
+![XPath Achsen](img/axles1.png "XPath Achsen")
+![XPath Achsen](img/axles2.png "XPath Achsen")
+
+
+#### Syntax
+
+* "/" - Wurzelknoten
+* "*" - alle Elemente innerhalb eines Pfades
+* //Name - alle Elemente eines Namens unabhängig vom Pfad
+* [...] - Einschränkung der Auswahl auf z.B. erstes Element (//ccc[1])
+* "|" - kombiniert Pfadbezeichner
+* @ - selektiert Attribute
+
+
+### XPointer
+
+Kann Punkte und Bereiche adressieren (XPath nur Knoten und Knotenmengen (Elemente, Attribute, Textknoten)).
+
+
+-----------------------------------------------
+## Verwendung von XLink, XPoint, XPath
+
+* XLink: Verbinden von Dokumenten
+ - Wenn beide Dokumente XML, dann in beide Richtungen möglich
+ - Ziel muss kein XML-Dokument sein
+ - kann in jedem Element verwendet werden
+ - genutzt, wenn weitere Informationen zur Verknüpfung angegeben werden sollen
+* XPath:
+  - zum Adressieren bestimmter Knoten oder Knotenmengen im selben oder in anderem XML-Dokument
+  - Verwendung durch andere XML-Technologien die Elemente adressieren müssen
+* XPointer:
+  - Verweisen auf Elemente innerhalb einer URI
+  - Adressieren von Punkten oder Bereichen in einem XML-Dokument
+
+-----------------------------------------------
+## Worin unterscheiden sich XPath und XPointer?
+
+XPath kann nur Knoten bzw. Knotenmengen adressieren (Elemente, Attribute, Textknoten).
+
+XPointer dagegen kann Punkte und Bereiche adressieren. Beispiel: Definition von Linkanker als zusammenhängende, jedoch nicht wohlgeformte Textbereiche. Wichtigster Begriff: *location*.
+
+Location:
+
+* XPath-Knoten oder ein
+* Punkte (point) oder ein
+* Bereich (range)
+
+
+-----------------------------------------------
+## Interpretieren Sie einen XPath-Ausdruck.
+
+-----------------------------------------------
+## Was sind XSL und XSLT?
+
+XSL - eXtensible Stylesheet Language
+
+* Familie von Transformationssprachen zur Definition von Layouts von XML-Dokumenten
+* Unterteilung in XSL Transformations (XSLT) und XSL Formatting Objects (XSL-FO)
+* XSLT: zur Transformation des Quelldokuments, z.B. Extraktion, Sortierung und Nummerierung der tatsächlich anzuzeigenden Informationen
+* XSL-FO: dient zur Festlegung des eigentlichen Layouts des Zieldokuments
+
+
+-----------------------------------------------
+## Erläutern Sie die Arbeitsweise eines XSLT-Prozessors.
+
+Der XSLT-Prozessor arbeitet im Zusammenspiel mit XPath. Aus dem XML-Dokument wird ein DOM-Baum (Document Object Model) erzeugt. Auf diesem arbeiten die Prozessoren. Der XSLT-Prozessor beginnt mit dem Wurzelelement und sucht dafür Regel im Stylesheet. Die Regel wird abgearbeitet und das Ergebnis generiert. Das Quelldokument steuert damit zumindest zu Beginn die Auswahl der Regel und der damit verbundenen Transformation, sowie Werte für das Ergebnisdokument, zur Attributexpanstion oder zur Selektion von Elementen im Quelldokument.
+Kurz:
+
+* XML-Parser erstellt DOM-Repräsentation des Quelldokuments
+* XML-Parser erstellt DOM-Repräsentation des XSLT-Stylesheets
+* XSLTProzessor verarbeitet Anweiseungen des Stylesheets und holt dafür Nodes und Node-Sets mittels XPath-Prozessor aus dem Quelldokument (in DOM)
+* Erzeugung von Knoten als DOM-Repräsentation
+* Ausgabe als Datei in bestimmtem Format
+
+![XSLT-Prozessor](img/xslt-processor.png "Arbeitsweise XSLT-Prozessor")
+
+
+-----------------------------------------------
+## Was sind Templates (XSLT)?
+
+Templates bzw. Regeln formulieren die Transformation einer Menge von Knoten des Quelldokuments. Zur Anwendung einer Transformation auf Elemente die einem bestimmten Pattern entsprechen.
+
+
+-----------------------------------------------
+## Was sind Pattern? (XSLT)
+
+Regel nach der eine Template Rule für einen Knoten ausgewählt wird.
+
+* im Wesentlichen eine Liste von Location Path Pattern, getrennt durch |
+
+Beispiel:
+```xml
+imagelist/image[1]
+```
+passt für alle **image**-Elemente, die dem Element **imagelist** untergeordnet sind und an der ersten Position davon stehen
+
+
+-----------------------------------------------
+## Wofür steht XSL-FO?
+
+XSL Formatting Objects
+
+* Definition medienspezifischer Objekte für unterschiedliche Enddarstellungen
+* direkte Formatierung des Zieldokuments: Ausgabemedien, z.B. WWW und Druck, typisch mit Seitenbeschreibungssprachen (PCL, PDF, RTF etc.)
+* basiert auf DSSSL (für SGML) und CSS (für HTML)
+* XML-Syntax
+
+
+
+-----------------------------------------------
+## DOM?
+
+DOM ... Document Object Model
+
+* plattform- und sprachunabhängige API für die Modifikation von Dokumenteninhalten (HTML, XML) und -eigenschaften durch Programme und Skripte
+* definiert Standardobjekte und ein Standardmodell, das festlegt, wie diese Objekte kombiniert werden können
+* API definiert  Art und Weise des Zugriffs und Manipulationsmöglichkeiten
+* ist fast vollständig in Form von Schnittstellen spezifiziert
+* definiert die Abbildung von XML- bzw- HTML-Dokumenten in eine Objektstruktur
+* definiert die Semantik dieser Schnittstellen und Objekte
+* repräsentiert Dokumente als Hierarchie von Knoten
+
+Unterteilt in 3 Level aus Modulen:
+
+* Level1: Core und html
+* Level2: Events, Views, Style, Traversal, Range
+* Level3: Load and Save, Validation, XPath
+
+
+-----------------------------------------------
+## Unterschiede zwischen DOM und XPath.
+
+* In Textknoten sieht XPath einen einzigen logischen Text, während DOM diesen unter Umständen weiter unterteilt (z.B. in verschiedene Entity-Referenzen)
+* während XPath einen Namespace auf jedes Element abbildet, verwaltet DOM nur die Namespace-Deklarationen
+* XPath unterstützt im Gegensatz zu DOM keine Bereiche
+
+-----------------------------------------------
+## Erläutern Sie die Defizite des DOM.
+
+* beim Einlesen eines XML-Dokuments werden zunächst alle darin enthaltenen Informationen im DOM-Baum repräsentiert, selbst wenn nur ein Bruchteil davon für die Anwendung relevant ist
+* dies kann bei umfangreichen XML-Dokumenten zu massiven Leistungs- und Speicherengpässen führen
+* DOM-Bäume werden sehr groß, da nicht nur Elemente sondern auch Textbestandateile ect. bei der Speicherstruktur berücksichtigt werden
+* die Navigation im DOM-Baum ist sehr umständlich
+* auch DOM Traversal und Range bringen keine wesentliche Vereinfachung
+
+
+-----------------------------------------------
+## Worin besteht der grundsätzliche Unterschied zwischen client- und server-seitigen Web-Technologien?
+
+Bei client-seitigen Technologien werden zum Großteil Skripte und Anwendungslogik auf dem Client, bzw. im Browser ausgeführt.
+
+Bei server-seitigen Technologien hingegen kommen Skript- und Programmiersprachen zum Einsatz die hauptsächlich auf dem Server ausgeführt werden.
+
+### Client-seitige Web-Technologien
+
+* XHTML-Client
+ - Klassischer Web-Server, Client kümmert sich nur um die Darstellung und die Übermittlung von UI-Ereignissen, Server bereitet HTML auf Basis der Anwendungslogik auf
+ - Technologien: XHTML, CSS, JavaScript
+* Ajax
+ - Client kümmert sich um die Präsentationslogik einschließlich Übersetzung von UI-Ereignissen auf Anwendungslogik, Interaktion vergleichbar mit Desktop-Anwendungen
+ - Server liefert geänderte / gewünschte Teilbereiche der aktuellen UI
+* Plug-in
+ - Eigenständiger Anwendungsteil, Server stellt z.B. über RPC Anwendungslogik und Daten bereit
+ - fast ausschließlich HTTP(S)-basierte Kommunikation
+ - zukünftig serviceorientierte Architektur und Web-Services (SOAP, WSDL, UDDI)
+
+### Server-seitige Web-Technologien
+
+häufig verwendetes Prinzip:
+
+* Aufruf einer Server-seitigen Anwendung über standardisierte API
+* Realisierung der serverseitigen Anwendung über Skriptsprachen oder webspezifische Programmiersysteme
+
+serverseitige HTML-Generierung:
+
+* offline durch Vorberechnung von HTML-Seiten
+ - Generierung statischer Seiten
+* Aufruf einer HTML-generierenden Anwendung
+ - CGI
+ - APIs, z.B. Java Servlets
+* Einbettung HTML-generierender Skriptteile
+ - Interpretiert:
+  + Server Side Scripting
+  + Active Server Pages
+  + PHP
+ - Kompiliert:
+  + Java Server Pages
+* XML-Weg
+
+
+-----------------------------------------------
+## Was ist eine Web-Architektur?
+
+* sie beschreibt die Struktur, d.h. die Komponenten, Schnittstellen und Beziehungen von Softwaresystemen einer verteilten Web-Anwendung
+* betrachtet sowohl statische als auch dynamische Aspekte und kann daher als Bauplan und Ablaufplan eines Softwaresystems gesehen werden
+
+
+-----------------------------------------------
+## Erläutern Sie den Begriff Schichten-Architektur.
+
+Dabei werden Web-Anwendungen in mehrere Schichten gegliedert, das Informationssystem also in mehrere Funktionsblöcke aufgeteilt. Ermöglicht Bildung eines Anwendungssystems aus seperaten Komponenten, welche durch eine Middleware koordiniert werden müssen.
+
+Einfachste Form: Server + Client (2 Schichten)
+
+
+-----------------------------------------------
+## Was bedeutet 2-Tier-Architektur?
+
+de.: 2-Schichten-Architektur
+
+* Aufteilung eines Informationssystems in die Funktionsblöcke: Präsentation, Anwendungslogik und Ressourcenverwaltung
+* bei 1-Tier-Architektur ist Präsentation Teil des Servers
+* bei 2-Tier-Architektur ist Präsentation Teil des Clients
+* die Anwendungslogik kann aus einer Vielzahl Services gebildet werden
+* über einheitliche Service-API werden diese dann dem Presentation Layer zur Verfügung gestellt
+
+Bsp.: Client-Server-Architektur
+
+ * Zugriff auf:
+  - statische, dynamische HTML-Seiten,
+  - Datenbank-Informationen,
+  - Dienste, z.B.: Datenbankverschlüsselung
+* Geeignet für einfache Web-Anwendungen
+* Anwendung mit vielen Client-Zugriffen, komplexen Anwendungsabläufen, Zugriff auf Legacy-Systeme, Medienströmen usw. erfordert aus Gründen der Performance eine mehrschichtige Architektur
+
+
+-----------------------------------------------
+## Was ist HTTP und wofür wird es eingesetzt?
+
+HTTP ... Hypertext Transfer Protocol
+
+Ist ein zustandloses Protokoll zur Übertragung von Web-Ressourcen wie z.B. HTML-, CSS- und JavaScript-Dokumenten.
+
+
+-----------------------------------------------
+## Beschreiben Sie wesentliche HTTP-Eigenschaften.
+
+* verwendet fast ausschließlich TCP (Transmission Control Protocol), aber auch UDP (User Datagram Protocol), welche auf dem IP-Protokoll aufsetzen
+* HTTP-Transaktion verläuft in 4 Schritten:
+ - Client baut TCP-Verbindung auf
+ - Client sendet HTTP-Request zu Server
+ - Server sendet HTTP-Response zum Client
+ - Server baut Verbindung zum Client wieder ab
+* **zustandslos**, d.h. Server betrachtet Anfrage unabhängig von vorhergehenden Anfragen
+* Bidirektionale Übertragung ist möglich
+* Browser und Server können Merkmale für folgenden Datentransfer aushandeln
+
+
+-----------------------------------------------
+## Was ist eine Ressource im WWW? Erläutern Sie den Begriff HTTP-Adressierung!
+
+Eine Ressource kann alles sein was weltweitig eindeutig über eine URI identifiziert werden kann. Diese URI dient der HTTP-Adressierung um die Ressource ausfindig zu machen. Sie ist identifizierbar mit Speicherort, Name und Darstellungsart (integrierte Anwendung).
+
+
+-----------------------------------------------
+## Erläutern Sie die Adressierung einer Ressource im Web.
+
+Eine Ressource wird adressiert indem Sie eine URI zugewiesen bekommt. Diese dient als Information zur Identifizierung und letztlich Lokalisierung im WWW.
+
+
+-----------------------------------------------
+## Was ist eine URI? Was ist eine URL? Was bedeuten die Begriffe? Erläutern Sie die Unterschiede zwischen URI und URL!
+
+URI ... Uniform Ressource Identifier
+
+Eine URI ist eine weltweit eindeutige Zeichenkette zur Identifizierung einer Web-Ressource. Sie besteht entweder aus einer URL oder einer URN.
+
+URL ... Uniform Ressource Locator
+
+URL-Format:
+```http
+protocol://[user:[password]@]hostname:[port]/documentname[?parameter]
+```
+
+URL besteht meist aus:
+
+* Zugangsprotokoll:// Hostadresse:Port/Pfad
+* Zugangsprotokoll (Präfix): http://, ftp://, mailto://, file:// usw.
+* Hostadresse: IP-Adresse oder DNS-Name (Domain Name Service) (jede DNS wird auf eine IP abgebildet)
+* Port: Optional, *:&lt;Portnummer&gt;*, Standard: Port 80
+* Pfad zur Ressource: leerer Pfad ist Wurzel **/**
+
+Beispiel:
+```html
+http://www.limbusdev.org:80
+```
+
+URL ist eine Unterart der URI.
+
+URN ... Uniform Ressource Name
+
+
+-----------------------------------------------
+## Beschreiben Sie das HTTP-Nachrichtenformat!
+
+Client-Request:
+
+* Methode, URL, HTTP-Version
+* (Optional) Allgemeiner Header
+* (Optional) Request-Header
+* (Optional) Body-Header
+* (Optional) Body
+
+Server-Response:
+
+* HTTP-Version, Statuscode, Information
+* (Optional) Allgemeiner Header
+* Response-Header
+* (Optional) Body-Header
+* (Optional) Body
+
+Body ist durch Leerzeile vom Rest getrennt.
+
+Beispiel Request-Header:
+
+```http
+Connect to 87.106.6.173 on port 80 ... ok
+
+GET / HTTP/1.1[CRLF]
+Host: www.limbusdev.org[CRLF]
+Connection: close[CRLF]
+User-Agent: Web-sniffer/1.1.0 (+http://web-sniffer.net/)[CRLF]
+Accept-Encoding: gzip[CRLF]
+Accept-Charset: ISO-8859-1,UTF-8;q=0.7,*;q=0.7[CRLF]
+Cache-Control: no-cache[CRLF]
+Accept-Language: de,en;q=0.7,en-us;q=0.3[CRLF]
+Referer: http://web-sniffer.net/[CRLF]
+```
+
+
+-----------------------------------------------
+## Was ist ein HTTP-Header? Was ist ein Request-Header?
+
+Der HTTP-Header enthält Daten und Parameter des Request- bzw. Response-Header. Der allgemeine Header übermittelt Informationen zur Nachricht selbst:
+
+* Connection: Anforderung an den Server, die TCP-Verbindung offen zu lassen
+* Date: Zeitpunkt, an dem die Message erzeugt wurde
+
+Request-Header kommt vom Client, enthält Informationen zum Request, Client oder User:
+
+* Authorization: Identität des Benutzers
+* Referer: URL des HTML-Dokuments, aus dem der Request generiert wurde
+* User-Agent: Kennung des Browsers > Anpassung der Dokumente an diesen
+* If-Modified-Since: enthält Zeitstempel für bedingte Anfrage einer Ressource, z.B. wenn diese bereits beim Client oder Proxy im Cache liegt
+
+Response-Header enthält Informationen die der Server an den Client übermittelt:
+
+* Location: URL, die Browser anstelle der ursprünglich erfragten anfordern soll
+* Server: Kennung des Servers, d.h. serverseitig verwendete Software
+* Expires: Verfallsdatum der Ressource
+* Cache-Control: Beeinflussung des Caching-Verhaltens
+* WW-Authenticate: enthält bei einem Response mit **Status 401** **Unauthorized** die Spezifikation des gewünschten Authentifizierungsverfahrens
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie HTTP-Methoden.
+
+* **OPTIONS** liefert Informationen über Kommunikationsoptionen einer über URL adressierten Ressource bzw. des Servers
+* **GET** fordert eine Ressource (Web-Site, Datei) an. Parameter sind die URL der angeforderten Ressource, HTTP-Version und an die URL angehängte Daten
+ - Benutzereingaben als *name=wert*-Paare, getrennt durch *&amp;* als Zeichenkette
+ - Daten MIME-Type-kodiert, z.B. aus Leerzeichen wird +, Sonderzeichen hexadezimal
+* **HEAD** äquivalent zu **GET**, jedoch nur Rückkgabe des HTTP-Response-Header der Ressource, keine Daten
+* **POST** überträgt Parameter zu einer durch die URL angegebenen Ressource auf dem Server
+ - URL beschreibt meist ein Programm auf dem Server, das Daten weiter verarbeiten soll (Formulardaten u.Ä.)
+* **PUT** überträgt Daten, meist vollständige HTML-Dokumente, zum Server
+ - Daten im Gegensatz zu **POST** unter bestimmter URL abgespeichert
+* **DELETE** löscht die in der URL übergebene Ressource vom Server
+* **TRACE** liefert gesendete Nachticht sowie den Übertragungsweg zurück
+
+
+-----------------------------------------------
+## Was bedeutet Caching? Nennen und beschreiben Sie Arten von Caching.
+
+Cache: Zwischenspeicher zur Verringerung des Datenverkehrs zwischen Client und Server und Entlastung des Servers.
+
+* **Client-Cache** befindet sich auf dem Client
+ - Netzzugriff nicht erforderlich, wenn aktuell benötigte Ressource bereits angefordert wurde
+ - deckt einen Client und mehrere Server ab
+* **Proxy** befindet sich zwischen Client und Server, z.B. zwischen Intranet und Internet
+ - sorgt dafür, dass aktuell benötigte Ressource nicht erneut vom Web-Server angefordert werden muss, wenn anderer Client dieses Proxies sie schon einmal angefordert hat
+ - deckt mehrere Clients und Server ab
+* **Server-Cache** befindet sich auf dem Server und dient der temporären Speicherung von Objekten, deren Beschaffung zeit- oder ressourcenaufwendig ist
+ - z.B. dynamisch generierte Dokumente oder aus einer Datenbank angeforderte Medienobjekte
+ - deckt mehrere Clients, aber nur einen Server ab
+
+
+-----------------------------------------------
+## Was bedeutet der Begriff Session?
+
+ Eine Session (Sitzung) ist eine persistente Client-Server-Verbindung.
+
+ * der Auf- und Abbau einer TCP/IP-Verbindung pro Request/Response ist zeit- und rechenzeitaufwendig
+ * in HTTP kann über das header-Feld *Connection* angegeben werden, ob die Verbindung
+  - geschlossen (Connection=Close) werden oder
+  - geöffnet (Connection=Keep-Alive) bleiben soll
+
+Eine Session ist also ein Dialog, der sich über mehrere Requests und Responses erstreckt.
+
+
+-----------------------------------------------
+## Welchem Zweck dient das Session-Management?
+
+HTTP ist zustandslos. Aus diesem Grund muss die Session vom Programmierer sichergestellt werden.
+
+-----------------------------------------------
+## Nennen, beschreiben und vergleichen Sie Session-Implementierungstechniken.
+
+Session-Verwaltung efolgt auf dem Server.
+
+### Hidden Fields (HF)
+
+* sind Elemente eines HTML-Formulars
+* vom Nutzer eingegebene Daten werden beim Erzeugen des Folgeformulars als versteckte Felder eingefügt und wieder zum Client übertragen
+* Vorteil: generelle Unterstützung, keine speziellen Voraussetzungen
+* Nachteil: Erzwungene Kontinuität des Dialoges, kein Verzweigen zwischendurch möglich
+
+### Cookies
+
+* Erweiterung des HTTP
+* Server überträgt mit erster Antwort Session-Information an Client
+* Client speichert sie für die von Server angegebene Zeit lokal
+* bei jedem HTTP-Request liefert Client Cookie wieder an Server
+* Cookies sind nicht HTML-gebunden
+* Vorteile: einfache Skalierung von Client-Anfragen bei großen Web-Anwendungen mit mehreren Servern
+* Nachteile: Overhead bei Übertragung, Sicherheitseinschränkungen, da alle Daten auf Client
+
+
+-----------------------------------------------
+## Wofür steht RTSP?
+
+RTSP ... Real Time Streaming Protocol
+
+
+-----------------------------------------------
+## Vergleichen Sie HTTP- und RTSP-Streaming
+
+|           | HTTP Streaming                                       | Realtime Streaming                               |
+|-----------|:-----------------------------------------------------|:-------------------------------------------------|
+| Vorteile  | + keine zusätzliche Server-Software nötig            | + Live-Streaming möglich                         |
+|           | + Inhalte werden unabhängig von der Verbindungs-     | + Broadcast und Multicasts möglich               |
+|           |   geschwindigkeit sicher übertragen                  | + Es wird nur wenig Festplattenkapazität beim    |
+|           | + bei guter Verbindungsgeschwindigkeit können die    |   Nutzer benötigt                                |
+|           |   Inhalte gleich schnell wie bei echtem Streaming    | + benutzt nur so viel Bandbreite wie es braucht  |
+|           |   empfangen werden                                   | + die Urheberrechte können geschützt werden      |
+|           | + Verlorene Pakete werden so oft neu gesendet bis    |                                                  |
+|           |   sie empfangen wurden                               |                                                  |
+|           | + keine Probleme mit Firewalls                       |                                                  |
+| Nachteile | - keine Unterstützung von Broadcast und Multicast    | - benötigt einen Streaming-Server und/oder       |
+|           | - kein Live-Streaming                                |   Broadcaster                                    |
+|           | - Benutzer kann im Inhalt nicht hin- und herspringen,| - Übertragung bricht ab, wenn nicht genügend     |
+|           |   muss vorher die Datei komplett herunterladen       |   Bandbreite zur Verfügung steht                 |
+|           | - es wird eine lokale Kopie gespeichert              | - keine Fehlerkorrektur                          |
+|           | - kein Schutz der Urheberrechte                      | - verlorene Pakete sind verloren                 |
+|           |                                                      | - funktioniert nicht mit Firewalls               |
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie Real Time Streaming Protokolle
+
+Real Time Streaming Protokolle sind speziell für die Übertragung synchroner, multimedialer
+Daten konzipiert.
+
+* **[RTP](https://de.wikipedia.org/wiki/Real-Time_Transport_Protocol)**: Transportprotokoll zur Übertragung von "Echtzeit-Daten"
+* **RTCP**: (Real Time Control Protocol) zur Überwachung der QoS-Parameter und zur Teilnehmerverwaltung
+* **RSVP**: (Ressource Reservation Protocol) zur Signalerzeugung & -Verarbeitung
+* **RTSP**: (Real Time Streaming Protocol) zur Steuerung von Medienströmen
+* **SDP**: (Session Description Protocol) zur Beschreibung von Streaming Sitzungen
+
+Da einzelne fehlerhafte Pakete im Datenstrom zeitabhängiger Medien zu einem gewissen Grad
+akzeptiert werden können, wird als Transportprotokoll meist UDP (User Datagram Protocol)
+verwendet.
+
+
+-----------------------------------------------
+## Beschreiben Sie die wesentlichen Eigenschaften von RTSP-Nachrichten
+
+* bestehen wie bei HTTP aus Request- und Response-Nachrichten
+* Requests zum Initialisieren einer Sitzung und Anstoßen von Aktionen
+* Response-Nachrichten beantworten eine Anforderung, indem sie den aktuellen Status zurückgeben (ähnlich wie HTTP)
+
+Beispielablauf RTSP-Sitzung:
+
+1. HTML-Link fordert SMIL-Datei mittels GET an
+2. nach Übertragung öffnet Multimedia-Client eine RTSP-Verbindung
+3. RTSP stellt Verbindung zum Media-Server her und überträgt einen SETUP-Request
+4. nach PLAY-Request wird eine RTP-Verbindung aufgebaut, die den Datenstrom überträgt
+5. Client kann Datenstrom über PAUSE unterbrechen oder mittels TEARDOWN beenden
+
+
+-----------------------------------------------
+## Wofür steht CGI?
+
+CGI ... Common Gateway Interface
+
+* CGI ist die Schnittstelle zwischen Web-Server und serverseitigen Anwendungen
+* CGI-Programm wertet Daten aus und generiert Ergebnisdokument (z.B. HTML)
+* Web-Server sendet das Ergebnisdokument an Client zurück
+* CGI-Skripte können in jeder beliebigen Programmiersprache geschrieben werden
+
+
+-----------------------------------------------
+## Was sind die Umgebungsvariablen einer server-seitigen Web-Anwendung? Wofür werden sie verwendet?
+
+Über Umgebungsvariablen stehen dem CGI-Entwickler verschiedene standardisierte Informationen zur
+Verfügung.
+
+* HTTP_ACCEPT: MIME-Typen, die der Client verarbeiten kann
+* HTTP_ACCEPT_LANGUAGE: die Sprache des Web-Browsers
+* HTTP_REFERER: URL, von der aus das CGI-Skript aufgerufen wurde
+* CONTENT_TYPE: der Typ der übergebenen Parameter
+* DOCUMENT_ROOT: das Wurzelverzeichnis des Web-Servers
+* HTTP_USER_AGENT: Name, Version des aufrufenden Browsers
+* SERVER_ADDR: die IP-Adresse des Servers, auf dem die Anwendung läuft
+* SERVER_NAME, SERVER_PORT: DNS-Name und Port des Servers
+* SERVER_SOFTWARE: Namer und Version der Web-Server-Software
+* REMOTE_ADDR: IP-Adresse des Client
+
+
+-----------------------------------------------
+## Was sind Java-Servlets? Wofür steht JSP?
+
+Java-Servlets sind Java-Anwendungen und eine Alternative zu CGI. JSL sind serverseitige
+Java-Komponenten, welche in Servlet-Containern ausgeführt werden. Beim Aufruf einer Web-Seite
+lädt der Application-Server das JSL in einen Servlet-Container und führt es auf einer JVM aus.
+
+![JSL](img/jsl.png)
+
+JSP ... Java Server Pages
+
+JSP hingegen funktionieren ähnlich wie PHP. Die Grundidee besteht in der Trennung von
+Präsentation (XHTML, CSS) und Anwendungssteuerung (Java-Code).
+
+
+-----------------------------------------------
+## Erläutern Sie den Zusammenhang zwischen Java-Servlets und [-Applets](https://de.wikipedia.org/wiki/Java-Applet)
+
+JSL stellen das serverseitige Gegenstück zu den clientseitigen Java Applets dar.
+Java-Servlets besitzen keine grafische UI. JSL und Applets müssen vorher kompiliert werden.
+
+
+-----------------------------------------------
+## Was sind die Vorteile von Java Servlets?
+
+* Portabilität: Plattformübergreifend, da JVM auf vielen Systemen und Architekturen verfügbar
+* Leistungsfähigkeit: alle Leistungsmerkmale von Java (Multithreading, Serialisierung usw.), Anbindung von Legacy-Anwendungen über Java Connectoren
+* Effizienz: einmal geladen bleibt ein JSL im Speicher des Web-Service, Zustand bleibt über Aufrufe hinweg erhalten (sessionorientierte Anwendungen)
+* Sicherheit: Robustheit des Sprachansatzes und Funktion des Java Security Manager
+* Einfachheit: das JSL API ist einfach und übersichtlich, Features wie Session-Tracking vereinfachen die Entwicklung
+
+
+-----------------------------------------------
+## Erläutern Sie die Ausführung von Java Server Pages
+
+JSP sind eine Ausprägung von JSL. Das heißt die JSP-Engine kompiliert die Seiten automatisch
+beim 1. Aufruf in ein JSL. Der Client erhält "reine" HTML-Seite.
+
+* bilden die Schnittstelle zum Web-Client, sind im wesentlichen für die Präsentation verantwortlich
+* JSP bildet rein deklaratives API für Zugriff auf JavaBeans-Komponenten
+* JSP sind Texte (z.B. HTML-, SVG-, WML- oder XML-Templates) mit eingefügtem Programmcode (Java, JavaScript)
+
+Ausführung:
+
+1. Client sendet GET-Anrage an Server
+2. JSP-Engine liest die JSP-Datei ein
+3. Engine erzeugt automatisch Servlet-Programm (Quellcode)
+4. Quellcode wird kompiliert
+5. Programm wird instanziiert und ausgeführt
+6. Ergebnis wird an Client gesendet
+7. bei allen weiteren Anforderungen der Seite exisitiert Servlet bereits und kann direkt ausgeführt werden
+
+![JSP](img/jsp.png)
+
+-----------------------------------------------
+## Erläutern Sie Funktionsweise und Ausgabe eines [gegebenen JSL oder JSP Quellcodes](https://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html#zz-2.)
+
+
+-----------------------------------------------
+## Wofür steht [PHP](https://de.wikipedia.org/wiki/PHP "PHP")?
+
+PHP ist ein rekursives Akronym und steht für **PHP: Hypertext Processor** (ehemals Personal Home Page Tools).
+
+
+-----------------------------------------------
+## Erläutern Sie Funktionsweise und Ausgabe eines gegebenen PHP-Skripts
+
+```php
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Hallo-Welt-Beispiel</title>
+    </head>
+    <body>
+        <?php
+            echo 'Hallo Welt!';
+        ?>
+    </body>
+</html>
+```
+
+PHP-Interpreter verarbeitet den Quelltext serverseitig und fügt *Hallo Welt!* in den Body ein.
+Ausgabe des PHP-Interpreters wird an den Browser gesendet.
+
+
+-----------------------------------------------
+## Wofür steht [AJAX](https://de.wikipedia.org/wiki/Ajax_%28Programmierung%29 "Ajax")? Was ist AJAX? Beschreiben Sie die zugrunde liegenden Konzepte
+
+AJAX ... Asynchronous JavaScript and XML
+
+Das Hauptproblem bei komfortablen Web-Anwendungen ist die träge Reaktion. Je Benutzeranfrage
+gibt es eine Serveranfrage und es muss auf das Ergebnis gewartet werden. Das nennt man
+*blockierende Interaktion*. Stattdessen kann man die Webseite dynamisch modifizieren und
+Server-Anfragen asynchron im Hintergrund stellen und bearbeiten sobald die Antwort eingetroffen
+ist, ohne dass alle anderen Funktionen warten müssen. Das Dokument wird dabei dynamisch
+mittels des DOM modifiziert.
+
+![Ajax](img/ajax1.png)
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie die Funktionsweise von Ajax anhand eines selbstgewählten Beispiels
+
+Man stelle sich vor, eine Fotogalerie soll im Browser betrachtet werden. Der Client stellt also
+die Anfrage an den Server mittels AJAX und stellt eine Callback-Funktion aus, welche agieren
+soll, sobald die Antwort ankommt. Währenddessen kann der Rest der Seite weiter benutzt werden.
+So können beispielsweise bereits geladene Fotos betrachtet oder neue Alben angelegt werden.
+
+Beispiel:
+
+-----------------------------------------------
+
+```javascript
+var myAjax = new Ajax.Request(
+  "datum.php",
+  { method: 'get', onComplete: zeige_datum }
+);
+```
+
+Sobald die Daten vom Browser komplett empfangen wurden, wird die Callback-Funktion **zeige_datum**
+ausgeführt:
+
+```javascript
+function zeige_datum( originalRequest ) {
+  document.getElementById('output').innerHTML = originalRequest.responseText;
+}
+```
+
+
+-----------------------------------------------
+## Beschreiben Sie die Funktionsweise von XMLHttpRequest
+
+* ist eine Programmierschnittstelle für JavaScript zum Übertragen von Daten über das HTTP und andere Web-Protokolle
+* auch nicht-XML-Daten können übertragen werden
+* XMLHttpRequest ermöglicht es einem Skript einer Website Daten dynamisch vom Webserver zu laden ohne die HTML-Seite neu zu laden
+* ist der Hauptbaustein von Ajax und ermöglicht asynchron Requests abzusenden und Responses zu verarbeiten
+
+Funktioniert in 3 Schritten:
+
+1. Erzeugen des XMLHttpRequest Objektes
+2. Verbindung zur Zeilseite und Statusabfrage
+3. Ausgabe der Rückgabe, Feststellen des Status und Aktualisierung der Website
+
+
+-----------------------------------------------
+## Beschreiben Sie den typischen Ablauf einer Interaktion (Ajax)
+
+Bei Interaktion wird XMLHttpRequest an Server abgesandt und ein bestimmtes Element angefordert.
+Es wird eine Funktion angegeben die ausgeführt werden soll, sobald Antwort ankommt. Wenn Antwort
+ankommt wird sie von eben jener Funktion bearbeitet.
+
+![Ajax](img/ajax2.png)
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie typische Bestandteile von Ajax
+
+Eine Ajax-Anwendung basiert auf folgenden Web-Techniken:
+
+* XHTML und CSS für die Darstellung
+* DOM für die Benutzerinteraktion und dynamische Ausgabe
+* XML und XSLT für den Datenaustausch zwischen Client und Server
+* JavaScript als Bindeglied für alle Koponenten
+* XMLHttpRequest ist Bestandteil vieler Browser und zentraler Baustein von AJAX um Daten asynchron mit Server austauschen zu können
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie wesentliche Ziele von HTML5
+
+* Kompatibilität: bestehender Inhalt muss unterstützt werden
+* Verwendbarkeit: neue Funktionen sollen bestehende Probleme lösen aber bestehende Funktionen nicht neu erfinden
+* Sicherheit: neue Funktionen müssen Sicherheitsaspekte berücksichtigen
+* Konsistenz: in XHTML-Anwendungen befindliche XML-Teile sollen in HTML5 erlaubt werden, HTML und XHTML besitzen eine gemeinsame DOM-Abbildung
+* Vereinfachung: durch genau definiertes Verhalten &amp; geringe Komplexität soll HTML5 interoperabel implementiert werden
+* Universalität: HTML5 soll auf allen Endgeräten und mit Inhalt in allen Weltsprachen verwendbar sein
+* Zugänglichkeit: die Zugänglichkeit von Inhalt und Funktionen soll gewährleistet sein
+
+-----------------------------------------------
+## Ist HTML5 ein verabschiedeter Standard?
+
+Ja, seit 28. Oktober 2014.
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie wesentliche Eigenschaften und Merkmale von HTML5
+
+* Semantik und Markup:
+ - Microdata (zusätzliche Informationen über die Daten)
+ - neue funktionale elemente für Audio, Video usw. (canvas, audio, command, embed, output usw.)
+* Offline und Speicher:
+ - Daten können auf dem Endgerät eines Benutzers gespeichert werden, damit Web-Apps auch ohne Internetverbindung funktionieren
+* Gerätezugang: Zugriff auf, btw. Verwendung von Gerätedaten (Geolocation API, Audio/Video mit Kamera/Mikrofon, Kontakte und Termine, Sensor-Daten usw.)
+* Konnektivität:
+ - effizientere Verbindungen für Echtzeit-Chats, schnellere Spiele, verbesserte Kommunikation
+ - Web Sockets für permanente Verbindung zwischen Seite und Server, Server-sent Events, WebRTC
+* Bewegung: Objekte können sich auf der Webseite bewegen und auf die Bewegung des Zeigers reagieren
+* Spiele: interaktive Spiele können allein mit dem Web-Browser, ohne zusätzliche Software oder Plug-Ins gespielt werden
+* Audio/Video: Ton- und Videowiedergabe erfolgt ohne zusätzliche Plug-Ins, es gibt noch kein einheitliches Format
+* 3D: WebGL erlaubt das verwenden interaktiver 3D-Effekte unter Nutzung der Grafikkarte
+* Performance: verbesserte Integration/Anbindung an das OS (nativ drag&amp;drop, touch-events, XMLHttpRequest Level 2, JIT, History API, Focus, Fullscreen)
+* CSS3: vielfältige Funktionen für verschiedene Stile und Effekte
+
+
+-----------------------------------------------
+## Was ist der wesentliche Unterschied zwischen CSS2 und CSS3? Welches grundlegende Ziel wird verfolgt?
+
+* modularer Aufbau
+* Annäherung zu DSSSL
+* unabhängige Implementierung und Weiterentwicklung von Modulen
+
+
+-----------------------------------------------
+## Nennen und beschreiben Sie wesentliche Neuerungen von CSS3
+
+* Komponenten/Module mit eigener Versionierung (Level)
+* &gt; 50 Module
+* Status der Module unterschiedlich
+* Transitions, Transformationen und Keyframes
+* Transparenz für Elemente
+* Farben im HSL-Farbraum angeben
+* abgerundete Ecken
+* Gradienten
+* Schatten für Elemente und Text
+* Textkonturen
+* texturierte Rahmen
+
+
+-----------------------------------------------
+## Was versteht man inhaltlich unter SOA, was ist das Neue? Welche Konsequenz hat es für die Programmierung von Web-Anwendungen?
+
+[SOA](http://www.service-architecture.com/articles/web-services/service-oriented_architecture_soa_definition.html "SOA") ... Service-orientierte Architekturen
+
+* SOA ist eine Sammlung von Services
+* Services kommunizieren miteinander
+* Kommunikation beinhaltet Senden einfacher Daten oder die Koordination einer Aktivität von 2 oder mehr Services
+* SOA beschreibt Verhältnis zwischen Services und Service Consumers
+* groß genug um komplexe Geschäftsmodelle abzubilden
+* oft als Konzept definiert, wie Anwendungen und Software-Infrastrukturen gestaltet, bereitgestellt und verwaltet werden
+* orientiert sich an Geschäftsprozessen - deren Abstraktion ist die Grundlage für Konkrete Serviceimplementierungen
+* einfache Anpassungen, auf betroffenen Teil begrenzt
+* Orchestration (Zusammensetzen) von Services niedriger Abstraktionsebenen &lt; flexible Schaffung von Services höherer Abstraktionsebenen
+* größtmöglicher Wiederverwendbarkeit von Services
+
+Web-Anwendungen werden dadurch zu verteilter Software. Diese wird durch 3 Rollen ermöglicht:
+
+* Service Provider (publizieren): implementiert Web-Service und macht ihn verfügbar
+* Service Requestor (auffinden, binden): möchte Service verwenden (Client, Server; Anwendung, Applet, JSL, anderer WS usw.)
+* Service Registry: zentrales Repository, das einen Directory Service implementiert; enthält Informationen über Unternehmen, Web-Service, Leistungsumfang und konkrete Nutzung
+
+
+-----------------------------------------------
+## Was versteht man konkret unter einem [Service bei SOA](http://www.service-architecture.com/articles/web-services/service.html "Service bei SOA")?
+
+Ein Service ist eine wohldefinierte, eigenständige Funktion, welche nicht vom Status oder Kontext anderer Services abhängt. Es ist eine generische Komponenten die über das Web von z.B. anderen Services, Anwendungen, Clients usw. verwendet werden kann.
+
+* sind lose gekoppelte funktionale Einheiten
+* sind zugreifbar über Standard-Internetprotokolle
+* rufen sich im SourceCode nicht gegenseitig auf
+* verwenden definierte Protokolle (SOAP) zur Weitergabe und Verarbeitung von Messages
+* verwenden Metadaten (WSDL)
+
+* Service besteht aus Service-Schnittstelle, -Contract, -Implementierung, hat URI
+* Service-Interfaces: Schnittstellen des Dienstes, die den Zugriffspunkt darstellen
+* Service-Contract: informelle Spezifikation der Verantwortlichkeit, Funktionalität, Bedingungen, Einschränkungen, Verwendung
+
+
+-----------------------------------------------
+## Erläutern Sie die Standards WSDL, SOAP, UDDI. Erläutern Sie diese an Hand eines Architekturbildes einer typischen dynamischen Web-Anwendung
+
+### [WSDL](https://de.wikipedia.org/wiki/Web_Services_Description_Language "WSDL") (Web Service Description Language)
+
+Die WSDL ist eine plattform-, programmiersprachen- und protokollunabhängige Beschreibungssprache
+für Netzwerkdienste (Webservices) zum Austausch von Nachrichten auf Basis von XML.
+
+* beschreibt angebotene Funktionen, Daten, Datentypen und Austauschprotokolle eines Webservice
+* definiert öffentliche Mthoden und deren Parameter und Rückgabewerte
+* stellt Kontakt zwischen Service-Anbieter und Service-Nutzer dar
+* WSDL-Dokument beinhaltet funktionelle Angaben zu:
+ - der Schnittstelle
+ - Zugangsprotokoll und Details zum Deployment
+ - notwendige Informationen zum Zugriff auf den Service in maschinenlesbarem Format
+ - Adresse des Web-Service
+
+[WSDL-Beispiel](https://de.wikipedia.org/wiki/Web_Services_Description_Language#Anwendungsbeispiel "WSDL-Beispiel")
+
+### [SOAP](https://de.wikipedia.org/wiki/SOAP "SOAP") (urspr.: Simple Object Access Protocol)
+
+* Protokoll auf Anwendungsebene, weder einfach noch ausschließlich objektorientiert
+* Austausch von Daten zwischen Systemen und Durchführung von Remote Procedure Calls
+* stellt Regeln für das Design, die Verarbeitung, Abbildung und Interpretation von Nachrichten auf
+* basiert auf XML
+* ist sprach- und plattformunabhängig
+* zustandsloses One-Way-Austauschformat, kann auf jedes Protokoll oberhalb TCP/IP aufgesetzt werden
+* meist mit HTTP und TCP gemeinsam benutzt
+
+
+### [UDDI](https://de.wikipedia.org/wiki/Universal_Description,_Discovery_and_Integration "UDDI") (Universal Description, Discovery and Integration)
+
+* standardisierter Verzeichnisdienst, besitzt SOAP-Schnittstelle
+* dient Katalogisierung von Unternehmen, ihren Daten und angebotenen Web-Servics
+* Provider (Web-Service-Anbieter) registriert Service bei UDDI-Server
+* Nutzer (Client) sucht geeigneten Service bei UDDI-Server
+* nach Auffinden kommuniziert Client direkt mit Provider zur Nutzung des WS
+* kein einheitlicher Katalog von Web-Services sondern Möglichkeit zur Automatisierung der Kontaktaufnahme von Anbieter und Nutzer
+* UDDI-Server speichert Informationen zu WS und Provider in Registrys
+* nicht weit verbreitet, von vielen Unternehmen aufgegeben (Microsoft, SAP, IBM, ...)
+
+
+
+-----------------------------------------------
+## Was sind die Elemente von SOAP? Warum wird es benötigt?
+
+SOAP-Message enthält:
+
+* SOAP Envelope: beginnt mit Definition der XML-Namensräume und spezifischer Parameterkodierung
+* SOAP Header: (optional) Elemente zur Authentisierung, Caching, Weiterleitung von Nachrichten und Andere
+* SOAP Body: eigentlich mitzuteilende Information
+
+Beispiel:
+```xml
+<?xml version="1.0"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <m:RequestID xmlns:m="http://www.lecture-db.de/soap">a3f5c109b</m:RequestID>
+    </s:Header>
+    <s:Body>
+        <m:DbResponse xmlns:m="http://www.lecture-db.de/soap">
+            <m:title value="DOM, SAX und SOAP">
+                <m:Choice value="1">Arbeitsbericht Informatik</m:Choice>
+                <m:Choice value="2">Seminar XML und Datenbanken</m:Choice>
+            </m:title>
+        </m:DbResponse>
+    </s:Body>
+</s:Envelope>
+```
+
+
+-----------------------------------------------
+## Elemente von WSDL?
+
+* definitions: Wurzelelement, definiert im Wesentlichen Namensräume
+* type: optionales Element, ist Container für Datentypdefinitionen
+ - z.B. XML Schema Datentypen
+ - legt auszutauschende Daten fest, z.B. als zusammengesetzte Daten, als Argument oder Return-Werte
+* andere Elemente können mehrfach vorkommen
+* message: beschreibt Nachricht, die vom Client zum Web-Service oder umgekehrt übertragen werden soll
+ - kann ein oder mehrere Part-Elemente enthalten
+* interface/portType: beschreibt abstrakte WS-Schnittstelle, d.h. beliebig viele abstrakte Operationen mit ihrem Interaktionsmuster (Request/Response) die von einem Port unterstützt werden
+* operation: abstrakte Beschreibung einer vom Dienst unterstützen Aktion (one-way, request-response, solicit-response, notification)
+* binding: definiert Bindung an ein Protokoll, legt fest wie in portType spezifizierte Operation übertragen wird (Protokoll und Nachrichtenformat)
+* port (endpoint): Kommunikationsendpunkt, Kombination aus binding und Netzadresse
+* Service (endpoint): beschreibt einen oder mehrere Ports
+
+
+-----------------------------------------------
+## Wie sind die Daten / Informationen auf einem UDDI-Server klassifiziert bzw. strukturiert?
+
+* Web-Services sind bei UDDI in unterschiedliche Typen aufgeteilt, innerhalb Typhierarchie hat jeder WS eindeutigen Schlüssel
+* Klassifikation über Industrie-Taxonomien
+* Registry-Daten in 4 Kategorien: technical models, buisnesses, business services, service bindings
+* bietet API standardisierter Dienste an
+
+-----------------------------------------------
+## Woher kommen diese Informationen (UDDI)? Welche Schnittstellen gibt es?
+
+Zugriff über API standardisierter Dienste auf:
+
+* businessEntity: Informationen über Geschäftseinheit die Web-Service anbietet
+* businessService: Informationen zu allgemeiner Beschreibung einer Serviceklasse (technische Informationen einzelner Dienste)
+* bindingTemplate: Eigenschaften eines konkreten Web-Service (URL, technische Anforderungen)
+* tModel: Details über technische Spezifikation eines Web-Service (Formate, Übertragungsprotokolle)
+
+
+-----------------------------------------------
+## Wie kann Web-Anwendung den UDDI-Server nutzen?
+
+Web-Anwendung kann UDDI über bestimmte Werkzeuge, z.B. Java-APIs benutzen.
+
+
+-----------------------------------------------
+## [BPEL](https://de.wikipedia.org/wiki/WS-Business_Process_Execution_Language "BPEL") und Bedeutung für Programmierer einer Geschäftsanwendung?
+
+BPEL ... Business Process Execution Language
+
+* Haupteinsatzgebiet Business-to-Business-Bereich
+* Abwicklung von Geschäftsprozessen über Anwendungen / Unternehmensgrenzen hinweg
+* XML-basierte Sprache zur Beschreibung von Geschäftsprozessen
+* Basis sind zu verknüpfende Workflows
+* kann Schnittstellen am Prozess beteiligter Web-Services beschreiben (z.B. Nachrichtenreihenfolge)
+* keine direkte Interaktion mit Menschen
+* BPEL-Prozesse kommunizieren ausschließlich mit Web-Services
+* baut auf WSDL auf und benutzt XML-Schema, XPath und WS-Addressing
+* beherrscht blockstrukturierte und graphbasierte Modellierung
+
+Programmierer muss *behavioural interfaces* implementieren um interne Geschäftsprozesse vor dritten zu verbergen.
+
+Beispiel:
+![BPEL](img/bpel.gif "Beispiel BPEL-Prozess")
+
+
+
+-----------------------------------------------
+## Typische Architektur für [RIA](https://de.wikipedia.org/wiki/Rich_Internet_Application "RIA")?
+
+RIA ...  Rich Client Anwendung
+
+Computer in einer verteilten Umgebung, der verteilte Ressource, aber auch lokale Ressourcen nutzt. Ziel sind desktop-ähnliche Interaktionsmöglichkeiten auch bei Web-Anwendungen.
+
+RIA erkennt man daran, dass
+
+* sie Benutzeroberflächen anbieten, die reich an Interaktionsmöglichkeiten sind,
+* sie entweder über das Internet kommunizieren (zum Beispiel mit Servern) oder zumindest über dieses ausgeliefert werden.
+
+
+-----------------------------------------------
+## Welche Methoden gehören zu einem [XMLHttpRequest](https://wiki.selfhtml.org/wiki/JavaScript/XMLHttpRequest "XMLHttpRequest")-Objekt?
+
+* abort(): aktuell laufenden Request abbrechen
+* getAllResponseHeader(): Liste aller Header als Key-Value-Paare
+* getResponseHeader(name): Wert für angegebenen header
+* open(method.url [syncFlag, username, password]): Verbindung zur Zieladresse aufbauen, Art der Übertragung vereinbarem
+* send(body | null): sendet Request an Server
+
+Beispiel:
+```javascript
+xhttp = new XMLHttpRequest();
+xhttp.open("GET", "ajax_info.txt", true);
+xhttp.send();
+```
+
+
+-----------------------------------------------
+## Portierung 10 Jahre alter dynamischer Web-Anwendung (XHTML, CSS, JavaScript, JavaServlets) auf Ajax. Wo eingreifen?
+
+* XHTML auf HTML5 portieren (fast komplett kompatibel)
+* JavaScript überarbeiten um asynchron statt synchron das DOM zu manipulieren
+* entsprechende Antwortfunktionen in den JavaServlets anlegen
+
+
+-----------------------------------------------
+## Moderne Frameworks für Web 2.0 / Ajax-Anwendungen?
+
+* Ruby on Rails
+* Node.js
+* OpenLaszlo
+* Eclipse RAP
+* Google GWT
+* Qooxdoo
+* ExtJS
+* Wicket
+
+Auswahl nach:
+
+* Szenario und Anforderungen
+* Entwicklungszeit, -Aufwand, Erfahrung
+* Client-Server-Verteilung
+* Performanz und Skalierbarkeit
+* Aufwand bei Deployment und Wartung
+* Verbreitung, Reife, Entwicklung, Standardkonformität
+
+
+-----------------------------------------------
+## Wie vereinfachen Web-Frameworks den Entwicklungsprozess von Web-Anwendungen?
+
+* Wiederverwendung von Code
+* schnelle Entwicklung lauffähiger Anwendungen
+* Komplexitätsreduktion
+* Templates
+* Umsetzung von populären Design Patterns (MVC)
+
+
+-----------------------------------------------
+## Aspekte Client-Server-Aufteilung bei RAP und GWT?
+
+Ausführung im Browser und damit kein unmittelbarer Zugriff auf die OS-Ebene. Serverteil in Java, Clientteil in JavaScript. Nach Start je eine Instanz von jedem GUI-Widget auf Client und Server. Synchronisierung von Client und Server muss gesichert sein. Nur senden sich ändernder Daten.
+
+
+-----------------------------------------------
+## Unterschiede Eclipse RAP und Google GWT?
+
+### [RAP](https://de.wikipedia.org/wiki/Remote_Application_Platform "RAP") (Remote Application Platform)
+
+* Java-Code komplett auf Server ausgeführt
+* statische JavaScript-Bibliothek vom Client geladen
+* ständige Synchronisation zwischen Client und Server (vollautomatisch)
+* serverseitige Auswertung von Interaktionen und Ausführung von Logik
+* stärkere Netzwerklast zwischen Client und Server
+
+### [GWT](http://www.gwtproject.org/overview.html "GWT") (Google Web Toolkit)
+
+* Java-Code wird in JavaScript umgewandelt
+* Anwendungszustand liegt auf dem Client
+* Kommunikation mit Server nur für Datenzugriff (Tausch und Skalierung von Server möglich)
+* clientseitige Ausführung der Logik
+* aufwendigere Erstellung, aber flexibler
+* leistungsstärker durch Caching und geringere Kommunikation
+
+
+
+
+
+
+
+
+
+
+
+
+# Quellen
+Hauptsächlich aus dem WME Skript von Professor Raimund Dachselt.
+
+Made with strapdown.js
+
+
+
+</xmp>
+<!-- MARKDOWN ......................... -->
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>

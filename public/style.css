@@ -1,0 +1,25 @@
+.container {
+  max-width: 800px;
+}
+
+body {
+  counter-reset: ebene1;
+}
+
+h1:before {
+    content: counter(ebene1) " ";
+    counter-increment: ebene1;}
+h1 {counter-reset: ebene2;}
+
+h2:before {
+    content: counter(ebene1) "." counter(ebene2) " ";
+    counter-increment: ebene2;}
+h2 {counter-reset: ebene3;}
+
+h3:before {
+    content: counter(ebene1) "." counter(ebene2) "." counter(ebene3) " ";
+    counter-increment: ebene3;}
+
+hr {
+  color: #222222 !important;
+}
